@@ -34,10 +34,16 @@ public class Model {
         this.maxBorder = maxBorder;
     }
 
+    private int random(int minBarrier, int maxBarrier) {
+        return (int) Math.ceil(Math.random() * (maxBarrier - minBarrier - 1) + minBarrier);
+
+    }
     public void setRandomValue() {
-        this.randomValue = minBorder + (int) (Math.random() * maxBorder);
+        this.randomValue = random(getMinBorder() , getMaxBorder());
     }
     public int getRandomValue() {
         return this.randomValue;
     }
+
+
 }
