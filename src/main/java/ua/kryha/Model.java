@@ -3,6 +3,7 @@ package ua.kryha;
 public class Model {
     private int minBorder;
     private int maxBorder;
+    private int randomValue;
 
     public boolean setRange(int minBorder , int maxBorder){
         if (getTrueRange(minBorder , maxBorder)){
@@ -31,5 +32,12 @@ public class Model {
 
     public void setMaxBorder(int maxBorder) {
         this.maxBorder = maxBorder;
+    }
+
+    public void setRandomValue() {
+        this.randomValue = minBorder + (int) (Math.random() * maxBorder);
+    }
+    public int getRandomValue() {
+        return this.randomValue;
     }
 }
