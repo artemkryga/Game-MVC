@@ -9,6 +9,7 @@ public class Model {
     private int randomValue;
     private View view = new View();
     private List<Integer> logger = new ArrayList<Integer>();
+
     public boolean checkValue (int value){
         logger.add(value);
 
@@ -20,7 +21,7 @@ public class Model {
 
         } else {
             this.minBorder = value;
-            view.printMessage(View.TRY_VALUE_MORE);;
+            view.printMessage(View.TRY_VALUE_MORE);
         }
         return true;
     }
@@ -57,5 +58,7 @@ public class Model {
         return this.randomValue;
     }
 
-
+    public List<Integer> getLogger() {
+        return logger;
+    }
 }

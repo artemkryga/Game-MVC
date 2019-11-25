@@ -33,8 +33,17 @@ public class Controller {
 
         view.printMessage(View.INPUT_INT_VARIABLE);
         model.setRandomValue();
+
         while (model.checkValue(inputIntValueWithRange(sc)));
 
+        view.printMessage(View.CONGRATULATION + View.SPACE + model.getRandomValue() + View.COMMA_AND_DOT);
+
+        view.printMessageInLine(View.LOGGER + View.SPACE);
+
+        for (Integer i : model.getLogger()) {
+
+            view.printMessageInLine(i + View.COMMA_AND_DOT + View.SPACE);
+        }
     }
 
     private int inputIntValueFromUserForCheckKey(Scanner scanner) {
