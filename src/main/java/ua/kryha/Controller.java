@@ -10,14 +10,6 @@ public class Controller {
         this.model = model;
         this.view = view;
     }
-    private int inputIntValue(Scanner scanner) {
-        while (!scanner.hasNextInt()) {
-            view.printMessage(View.WRONG_INPUT_DATA + View.SPACE + View.LIMITS_OF_GAME);
-            scanner.next();
-        }
-
-        return scanner.nextInt();
-    }
 
     public void start() {
         Scanner sc = new Scanner(System.in);
@@ -25,7 +17,7 @@ public class Controller {
         view.printMessage(View.GREETING);
         view.printMessage(View.SET_RANGE_OF_GAME);
 
-        while (!model.getTrueRange(model.getMinBorder() , model.getMaxBorder())) {
+        while (true) {
             view.printMessage(View.SET_MIN_RANGE);
             model.setMinBorder(inputIntValue(sc));
             view.printMessage(View.SET_MAX_RANGE);
@@ -40,14 +32,41 @@ public class Controller {
         }
 
         view.printMessage(View.INPUT_INT_VARIABLE);
-        while (model.checkValue(inputIntValue(sc)));
-
-
-
-
-
+        model.setRandomValue();
+        while (model.checkValue(inputIntValueWithRange(sc)));
 
     }
+
+    private int inputIntValueFromUserForCheckKey(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            view.printMessage(View.WRONG_INPUT_DATA);
+            scanner.next();
+        }
+        return scanner.nextInt();
+    }
+    private int inputIntValue(Scanner scanner) {
+        while (!scanner.hasNextInt()) {
+            view.printMessage(View.WRONG_INPUT_DATA + View.SPACE + View.LIMITS_OF_INT);
+            scanner.next();
+        }
+        return scanner.nextInt();
+    }
+
+    private int inputIntValueWithRange(Scanner scanner) {
+          int result = 0;
+
+          while (true) {
+              result = inputIntValueFromUserForCheckKey(scanner);
+              if (result > model.getMinBorder() && result < model.getMaxBorder()) {
+                return result;
+              }
+              else {
+                  view.printLimits(model.getMinBorder() , model.getMaxBorder());
+              }
+
+          }
+    }
+
 
 
 

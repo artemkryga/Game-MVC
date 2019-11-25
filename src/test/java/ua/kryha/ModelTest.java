@@ -13,18 +13,11 @@ public class ModelTest {
 
 
     @Test
-    public void testSetRange(){
-        Model model = new Model();
-        assertTrue(model.setRange(1, 3));
-        assertFalse(model.setRange(1 , 2));
-        assertFalse(model.setRange(1 , 1));
-    }
-
-    @Test
     public void testSetKeyValue() {
         Model model = new Model();
 
-        model.setRange(0 , 100);
+        model.setMinBorder(0);
+        model.setMaxBorder(100);
         int i = 0;
         while (i < 1000000000) {
             model.setRandomValue();

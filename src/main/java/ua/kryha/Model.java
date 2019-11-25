@@ -7,6 +7,7 @@ public class Model {
     private int minBorder;
     private int maxBorder;
     private int randomValue;
+    private View view = new View();
     private List<Integer> logger = new ArrayList<Integer>();
     public boolean checkValue (int value){
         logger.add(value);
@@ -15,8 +16,11 @@ public class Model {
             return false;
         } else if (value > this.randomValue){
             this.maxBorder = value;
+            view.printMessage(View.TRY_VALUE_LESS);
+
         } else {
             this.minBorder = value;
+            view.printMessage(View.TRY_VALUE_MORE);;
         }
         return true;
     }
