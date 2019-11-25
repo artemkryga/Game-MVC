@@ -23,10 +23,9 @@ public class Controller {
             view.printMessage(View.SET_MAX_RANGE);
             model.setMaxBorder(inputIntValue(sc));
 
-            if (model.getTrueRange(model.getMinBorder() , model.getMaxBorder())) {
+            if (model.getTrueRange(model.getMinBorder(), model.getMaxBorder())) {
                 break;
-            }
-            else {
+            } else {
                 view.printMessage(View.WRONG_LIMITS);
             }
         }
@@ -34,7 +33,7 @@ public class Controller {
         view.printMessage(View.INPUT_INT_VARIABLE);
         model.setRandomValue();
 
-        while (model.checkValue(inputIntValueWithRange(sc)));
+        while (model.checkValue(inputIntValueWithRange(sc))) ;
 
         view.printMessage(View.CONGRATULATION + View.SPACE + model.getRandomValue() + View.COMMA_AND_DOT);
 
@@ -53,6 +52,7 @@ public class Controller {
         }
         return scanner.nextInt();
     }
+
     private int inputIntValue(Scanner scanner) {
         while (!scanner.hasNextInt()) {
             view.printMessage(View.WRONG_INPUT_DATA + View.SPACE + View.LIMITS_OF_INT);
@@ -62,21 +62,18 @@ public class Controller {
     }
 
     private int inputIntValueWithRange(Scanner scanner) {
-          int result = 0;
+        int result = 0;
 
-          while (true) {
-              result = inputIntValueFromUserForCheckKey(scanner);
-              if (result > model.getMinBorder() && result < model.getMaxBorder()) {
+        while (true) {
+            result = inputIntValueFromUserForCheckKey(scanner);
+            if (result > model.getMinBorder() && result < model.getMaxBorder()) {
                 return result;
-              }
-              else {
-                  view.printLimits(model.getMinBorder() , model.getMaxBorder());
-              }
+            } else {
+                view.printLimits(model.getMinBorder(), model.getMaxBorder());
+            }
 
-          }
+        }
     }
-
-
 
 
 }

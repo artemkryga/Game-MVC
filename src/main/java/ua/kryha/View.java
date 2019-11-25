@@ -22,15 +22,15 @@ public class View {
     public static final String TRY_VALUE_LESS = "Try less value!";
 
 
-
-    public void printMessage (String message){
+    public void printMessage(String message) {
         System.out.println(message);
     }
-     public void printLimits (int min , int max) {
-         System.out.println(String.format(LIMITS_OF_GAME , min , max));
-     }
 
-    public void printMessageInLine (String message){
+    public void printLimits(int min, int max) {
+        System.out.println(String.format(LIMITS_OF_GAME, min, max));
+    }
+
+    public void printMessageInLine(String message) {
         System.out.print(message);
     }
 

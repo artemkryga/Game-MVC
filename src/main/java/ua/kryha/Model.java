@@ -10,12 +10,12 @@ public class Model {
     private View view = new View();
     private List<Integer> logger = new ArrayList<Integer>();
 
-    public boolean checkValue (int value){
+    public boolean checkValue(int value) {
         logger.add(value);
 
-        if (value == this.randomValue){
+        if (value == this.randomValue) {
             return false;
-        } else if (value > this.randomValue){
+        } else if (value > this.randomValue) {
             this.maxBorder = value;
             view.printMessage(View.TRY_VALUE_LESS);
 
@@ -30,7 +30,7 @@ public class Model {
         return (int) Math.ceil(Math.random() * (maxBarrier - minBarrier - 1) + minBarrier);
     }
 
-    public boolean getTrueRange(int minBorder , int maxBorder) {
+    public boolean getTrueRange(int minBorder, int maxBorder) {
         return (maxBorder - minBorder) >= 2;
     }
 
@@ -52,8 +52,9 @@ public class Model {
 
 
     public void setRandomValue() {
-        this.randomValue = random(getMinBorder() , getMaxBorder());
+        this.randomValue = random(getMinBorder(), getMaxBorder());
     }
+
     public int getRandomValue() {
         return this.randomValue;
     }

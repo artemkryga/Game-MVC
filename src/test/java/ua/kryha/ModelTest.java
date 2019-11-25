@@ -1,34 +1,27 @@
 package ua.kryha;
 
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
-import javax.jws.WebParam;
 
 import static org.junit.Assert.*;
 
 public class ModelTest {
-
     Model model;
 
     @Before
-    public void getModel(){
+    public void getModel() {
         model = new Model();
     }
 
     @Test
     public void testGetTrueRange() {
 
-        assertTrue(model.getTrueRange(-1224 ,100));
+        assertTrue(model.getTrueRange(-1224, 100));
 
     }
 
     @Test
     public void testSetKeyValue() {
-
 
         model.setMinBorder(0);
         model.setMaxBorder(100);
