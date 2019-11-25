@@ -1,17 +1,28 @@
 package ua.kryha;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Model {
     private int minBorder;
     private int maxBorder;
     private int randomValue;
+    private List<Integer> logger = new ArrayList<Integer>();
+    public boolean checkValue (int value){
+        logger.add(value);
 
-    public boolean setRange(int minBorder , int maxBorder){
-        if (getTrueRange(minBorder , maxBorder)){
-            setMinBorder(minBorder);
-            setMaxBorder(maxBorder);
-            return true;
+        if (value == this.randomValue){
+            return false;
+        } else if (value > this.randomValue){
+            this.maxBorder = value;
+        } else {
+            this.minBorder = value;
         }
-        return false;
+        return true;
+    }
+
+    private int random(int minBarrier, int maxBarrier) {
+        return (int) Math.ceil(Math.random() * (maxBarrier - minBarrier - 1) + minBarrier);
     }
 
     public boolean getTrueRange(int minBorder , int maxBorder) {
@@ -34,10 +45,7 @@ public class Model {
         this.maxBorder = maxBorder;
     }
 
-    private int random(int minBarrier, int maxBarrier) {
-        return (int) Math.ceil(Math.random() * (maxBarrier - minBarrier - 1) + minBarrier);
 
-    }
     public void setRandomValue() {
         this.randomValue = random(getMinBorder() , getMaxBorder());
     }
