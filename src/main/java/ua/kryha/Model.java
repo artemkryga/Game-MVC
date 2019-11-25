@@ -9,10 +9,11 @@ public class Model {
     private int randomValue;
     private View view = new View();
     private List<Integer> logger = new ArrayList<Integer>();
+    public static int counter = 0;
 
     public boolean checkValue(int value) {
         logger.add(value);
-
+        counter++;
         if (value == this.randomValue) {
             return false;
         } else if (value > this.randomValue) {

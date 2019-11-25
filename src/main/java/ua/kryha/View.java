@@ -20,7 +20,7 @@ public class View {
     public static final String LOGGER = "Look at your attempts:";
     public static final String TRY_VALUE_MORE = "Try more value!";
     public static final String TRY_VALUE_LESS = "Try less value!";
-
+    public static final String COUNT_OF_ATTEMPTS = "Count of your attempts:";
 
     public void printMessage(String message) {
         System.out.println(message);

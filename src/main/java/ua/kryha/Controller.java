@@ -36,9 +36,8 @@ public class Controller {
         while (model.checkValue(inputIntValueWithRange(sc))) ;
 
         view.printMessage(View.CONGRATULATION + View.SPACE + model.getRandomValue() + View.COMMA_AND_DOT);
-
+        view.printMessage(View.COUNT_OF_ATTEMPTS + View.SPACE + Model.counter);
         view.printMessageInLine(View.LOGGER + View.SPACE);
-
         for (Integer i : model.getLogger()) {
 
             view.printMessageInLine(i + View.COMMA_AND_DOT + View.SPACE);
